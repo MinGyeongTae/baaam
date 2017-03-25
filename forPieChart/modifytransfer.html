@@ -60,7 +60,7 @@
 		    </div>
 	  	</div>
         <h4 class="form-group float-right">
-		   남는 돈 123,330원 
+           남는 돈 <span id="calcul">123,330</span>원
 	  	</h4>
         <div class="form-group">
           <input class="btn btn-default btn-lg btn-block" value="저장" onclick="javascript:chkValue()">
@@ -72,7 +72,7 @@
     </div>
     
     <script type="text/javascript">
-   	var mvalue = 60;//60만원 
+   	var mvalue = 600000;//60만원 
    	//var min =  mvalue*0.8;
    	var max = mvalue * 2;
     var seekbar = new Seekbar.Seekbar({
@@ -92,19 +92,21 @@
     function updatePreview() {
         var w1 = seekbar.value.toString();
         $("#transfer_acc").val(w1.toUpperCase());
+        $("#calcul").html(max - w1);
     }
     function chkValue(){
         if($("#transfer_acc").val()<=max)
         {
             seekbar.setValue($("#transfer_acc").val());
             drawToast("값을 저장하였습니다.");
+            location.href = "chart4.html";
         }
         else{
             drawToast("값을 다시입력하세요.");
         }
       
     }
-    chkValue();
+    // chkValue();
     updatePreview();
     </script>
 

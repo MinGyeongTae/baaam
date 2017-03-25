@@ -88,8 +88,12 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-        	['추가하기', 15000],
-        	['남은 돈 10만5천원', 205000]	
+        	['추가하기', 105000],
+        	['남은 돈 50만원', 140000],
+        	['생활비 90만원', 180000],
+        	['엄마 용돈 20만원', 130000],
+        	['데이트 통장 15만원', 130000],
+        	['비상금 5만원', 100000],
         ]);
 
         // Set chart options
@@ -99,8 +103,8 @@
 	       	pieSliceTextStyle: {    
 	            fontSize: 18
 	        },
-	        pieStartAngle: -25,
- 			tooltip: { trigger: 'none' },
+	        pieStartAngle: -105,
+	         tooltip: { trigger: 'none' },
            slices: [{color: '#ccc'}, {color: '#eee'}, {color: '#d5c1ee'}, {color: '#875fbc'}, {color: '#0eb882'}, {color: '#fdef0b'}]
         };
 
@@ -117,7 +121,7 @@
         //location.href = "http://www.naver.com";
         console.log ('legend onClick', event);
         console.log('legd item', data.kc[0][0]);
-        location.href = "addChart.html";
+        location.href = "modifytransfer.html";
     }
 </script>
 </html>
