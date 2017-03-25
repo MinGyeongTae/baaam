@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 	<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-		
-		<!-- 부트스트랩 -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet">
-	    <link href="css/style.css" rel="stylesheet">
-	</head>
-	<body>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+
+	<!-- 부트스트랩 -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
 	<div class = "container">
 		<canvas id="myChart" width="256" height="256" style="width: 256px; height: 256px;"></canvas>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="js/jquery-2.1.4.min.js"></script>
-		    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-		    <script src="js/bootstrap.min.js"></script>
+		<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+		<script src="js/bootstrap.min.js"></script>
 		
-		<script src="js/Chart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 		
-		</div>
-	</body>
-	<script>
-		$(document).ready(function(){
-			var ctx = document.getElementById("myChart").getContext('2d');
-			var args = [];
-			var myChart = new Chart(ctx, {
-			    type: 'bar',
-			    data: {
-			        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-			        datasets: [{
-			            label: '# of Votes',
-			            data: [12, 19, 3, 5, 2, 3],
-			            backgroundColor: [
-			                'rgba(255, 99, 132, 0.2)',
-			                'rgba(54, 162, 235, 0.2)',
-			                'rgba(255, 206, 86, 0.2)',
-			                'rgba(75, 192, 192, 0.2)',
-			                'rgba(153, 102, 255, 0.2)',
-			                'rgba(255, 159, 64, 0.2)'
-			            ],
-			            borderColor: [
-			                'rgba(255,99,132,1)',
-			                'rgba(54, 162, 235, 1)',
-			                'rgba(255, 206, 86, 1)',
-			                'rgba(75, 192, 192, 1)',
-			                'rgba(153, 102, 255, 1)',
-			                'rgba(255, 159, 64, 1)'
-			            ],
-			            borderWidth: 1
-			        }]
-			    },
-			    options: {
-			        scales: {
-			            yAxes: [{
-			                ticks: {
-			                    beginAtZero:true
-			                }
-			            }]
-			        }
-			    }
+	</div>
+</body>
+<script>
+	$(document).ready(
+		function(){
+			var ctx = document.getElementById("myChart").getContext("2d");
+			var onClickItem = function(event, item){
+				 console.log ('legend onClick', event);
+                 console.log('legd item', item);
+				location.href="http://www.naver.com";
+			}
+			var myPieChart = new Chart(ctx,{
+				type: 'pie',
+				data : {
+					labels: [
+					"Red",
+					"Blue",
+					"Yellow"
+					],
+					datasets: [
+					{
+						data: [300, 50, 100],
+						backgroundColor: [
+						"#FF6384",
+						"#36A2EB",
+						"#FFCE56"
+						],
+						hoverBackgroundColor: [
+						"#FF6384",
+						"#36A2EB",
+						"#FFCE56"
+						]
+
+					}]
+
+				},
+				options: {
+					animation:{
+						animateScale:true
+					},
+					 'onClick' :onClickItem
+				}
 			});
+			// $("myChart").onClick(
+			// 	function(evt){
+			// 		var activePoints = myNewChart.getSegmentsAtEvent(evt);
+			// 		location.href("http://www.naver.com");
+			// 		alert("http://www.naver.com");
+			// 	})
 		});
-		</script>
-</html>
+	</script>
+	</html>

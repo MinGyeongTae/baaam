@@ -18,25 +18,28 @@
 	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	    <![endif]-->
 	</head>
-	<body>
+	<body class="bg-dark">
 		<div class="container">
-			<form method="post" action='join.jsp' id="join">
+			<div class="join-title">
+				<h1 class='center'>회원가입</h1>
+			</div>
+			<form method="post" action='join.jsp'>
 			<!--<form name="joinform" method="post" onsubmit="return fregisterform_submit(this);" autocomplete="off">-->
-				<div class = "form-group">
-					<label class="heading" for="name">이름:</label>
-					<input type="text" name="id" id="id"/> <br>
+				<div class = "form-group form-group-lg">
+					<!--<label class="heading" for="name">이름</label>-->
+					<input class="form-control" type="text" placeholder="이름" name="id" id="id"/> <br>
 				</div>
-				<div class = "form-group">
-					<label class="heading" for="passwd">패스워드:</label>
-					<input type="password" name="passwd" id="passwd"/> <br>
+				<div class = "form-group form-group-lg">
+					<!--<label class="heading" for="passwd">패스워드</label>-->
+					<input class="form-control" type="password" placeholder="패스워드" name="passwd" id="passwd"/> <br>
 				</div>
-				<div class = "form-group">
-					<label class="heading" for="passwd2">패스워드확인:</label>
-					<input type="password" name="passwd2" id="passwd2"/> <br>
+				<div class = "form-group form-group-lg">
+					<!--<label class="heading" for="passwd2">패스워드확인</label>-->
+					<input class="form-control" type="password" placeholder="패스워드확인" name="passwd2" id="passwd2"/> <br>
 				</div>
-				<div class = "form-group">
-					<label class="heading" for="name">전화번호:</label>
-					<input type="text" name="phone" id="iphone"/> <br><br>
+				<div class = "form-group form-group-lg">
+					<!--<label class="heading" for="name">전화번호</label>-->
+					<input class="form-control" type="text" placeholder="전화번호" name="phone" id="iphone"/> <br><br>
 				</div>
 				<input type="submit" value="회원가입" class="btn btn-primary btn-lg btn-block"/>
 			</form>
