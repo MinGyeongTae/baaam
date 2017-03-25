@@ -9,53 +9,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>session</title>
-</head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+        <title>뺌::시작하기</title>
+    
+        <!-- 부트스트랩 -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    
+        <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+        <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
 <body>
+    <div class="container">
 	<form action="certification.html">
-                <h3>은행</h3>
-		<select name="Bank">
-                    <option value="">은행선택</option>
-                    <option value="NH농협은행">NH농협은행</option>
-                    <option value="신한은행">신한은행</option>
-                    <option value="제주은행">제주은행</option>
-                    <option value="국민은행">국민은행</option>
-                    <option value="농협은행">농협은행</option>
-                    <option value="우리은행">우리은행</option>
-                    <option value="KEB하나은행">KEB하나은행</option>
-                    <option value="외환은행">외환은행</option>
-                    <option value="우체국">우체국</option>
-                    <option value="기업은행">기업은행</option>
-                    <option value="SC은행">SC은행</option>
-                    <option value="비엔피파리바은행">비엔피파리바은행</option>
-                    <option value="씨티은행">씨티은행</option>
-                    <option value="외환은행">외환은행</option>
-                    <option value="수협은행">수협은행</option>
-                    <option value="산업은행">산업은행</option>
-                    <option value="도이치">도이치</option>
-                    <option value="상호저축은행">상호저축은행</option>
-                    <option value="신용협동조합">신용협동조합</option>
-                    <option value="새마을금고">새마을금고</option>
-                    <option value="지역농·축협">지역농·축협</option>
-                    <option value="경남은행">경남은행</option>
-                    <option value="전북은행">전북은행</option>
-                    <option value="광주은행">광주은행</option>
-                    <option value="부산은행">부산은행</option>
-                    <option value="대구은행">대구은행</option>
-                    <option value="HSBC">HSBC</option>
-                    <option value="JP모간">JP모간</option>
-                    <option value="BOA">BOA</option>
-                    <option value="산림조합">산림조합</option>
-                    <option value="공상은행">공상은행</option>
-                    <option value="케이뱅크">케이뱅크</option>
-                </select>
-                  <h3>계좌번호</h3>
-		<input type="text" name="acc_number">
-                  <h3>통장 별명</h3>
-		<input type="text" name="acc_nick">
-		<input type="submit" value="전송">
+        <div class="form-group">
+            <h3>은행</h3>
+    		<select class="form-control" name="Bank">
+                <option value="">은행선택</option>
+                <option value="NH농협은행">NH농협은행</option>
+                <option value="신한은행">신한은행</option>
+                <option value="제주은행">제주은행</option>
+                <option value="국민은행">국민은행</option>
+                <option value="농협은행">농협은행</option>
+                <option value="우리은행">우리은행</option>
+                <option value="KEB하나은행">KEB하나은행</option>
+                <option value="외환은행">외환은행</option>
+                <option value="우체국">우체국</option>
+                <option value="기업은행">기업은행</option>
+                <option value="SC은행">SC은행</option>
+                <option value="비엔피파리바은행">비엔피파리바은행</option>
+                <option value="씨티은행">씨티은행</option>
+                <option value="외환은행">외환은행</option>
+                <option value="수협은행">수협은행</option>
+                <option value="산업은행">산업은행</option>
+                <option value="도이치">도이치</option>
+                <option value="상호저축은행">상호저축은행</option>
+                <option value="신용협동조합">신용협동조합</option>
+                <option value="새마을금고">새마을금고</option>
+                <option value="지역농·축협">지역농·축협</option>
+                <option value="경남은행">경남은행</option>
+                <option value="전북은행">전북은행</option>
+                <option value="광주은행">광주은행</option>
+                <option value="부산은행">부산은행</option>
+                <option value="대구은행">대구은행</option>
+                <option value="HSBC">HSBC</option>
+                <option value="JP모간">JP모간</option>
+                <option value="BOA">BOA</option>
+                <option value="산림조합">산림조합</option>
+                <option value="공상은행">공상은행</option>
+                <option value="케이뱅크">케이뱅크</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <h3>계좌번호</h3>
+          <input class="form-control" type="text" name="acc_number">
+        </div>
+        <div class="form-group">
+          <h3>통장 별명</h3>
+		  <input class="form-control" type="text" name="acc_nick">
+        </div>
+        <div class="form-group">
+		  <input class="btn btn-default btn-lg btn-block" type="submit" value="전송">
+        </div>
 	</form>
+            <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+            <script src="js/bootstrap.min.js"></script>
+    </div>
 </body>
 </html>
 

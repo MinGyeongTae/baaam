@@ -21,6 +21,7 @@
 	<body class="bg-dark">
 		<div class="container">
 			<form method="post" action='join.jsp'>
+			<!--<form name="joinform" method="post" onsubmit="return fregisterform_submit(this);" autocomplete="off">-->
 				<div class = "form-group">
 					<label class="heading" for="name">이름:</label>
 					<input type="text" name="id" id="id"/> <br>
@@ -44,5 +45,33 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 	    <script src="js/bootstrap.min.js"></script>
+	    <script language="JavaScript">
+	    	// submit 최종 폼체크
+	    	$("#join").submit(function(){
+	    		var mb_id = $("#id").val();
+
+	    	    // 회원아이디 검사
+	    		if(mb_id.length > 10) {
+	    			alert('아이디를 10자 이하로 작성해 주세요.');
+	    			$("#id").focus();
+	    			return false;
+	    		}
+
+	    	    // 패스워드 검사
+	    		if($("#passwd").val().length < 4) {
+	    			alert('패스워드를 4글자 이상 입력하십시오.');
+	    			$("#passwd").focus();
+	    			return false;
+	    		}
+
+	    	    if($("#passwd").val() !== $("#passwd2").val()) {
+	    	        alert('패스워드가 같지 않습니다.');
+	    			$("#passwd").focus();
+	    	        return false;
+	    	    }
+
+	    	})
+
+	    </script>
 	</body>
 </html>
