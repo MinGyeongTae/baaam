@@ -19,19 +19,43 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 		      	</button>
-		      	<a class="navbar-brand" href="chart.html"><span class="glyphicon glyphicon-chevron-left"></span></a>
-		      	<a class="navbar-brand" href="#">출금계좌 등록</a>
+		      	<a class="navbar-brand" href="#"><img src="image/logo40.png"></a>
+		      	<a class="navbar-brand" href="#">baaam.</a>
 		    </div>
     		
 		</div>
 	</nav>
 	<div class="container">
-		<h1>내 계좌 </h1>
+		<a class="main" href="addregulartransfer.html">	
+			<h1 class="purple">월급통장 
+				<small class="float-right">NH농협 302-0********-71</small>
+			</h1>
+	        <h2 class="black">
+	           잔액
+	           <span class="float-right">3,000,000원</span>
+	        </h2>
+	        <hr>
+	        <div class="form-group">
+	            <h4 class="purple">예약된 자동이체</h4>
+	        </div>
+	        <ul class="form-group">
+	           <li>주택 청약
+	           <span class="float-right"> -800,000원</span></li>
+	           <li>국민 적금</span>
+	           <span class="float-right"> -600,000원</span></li>
+	        </ul>
+	        <hr>
+	        <h3 class="form-group">
+	           <span>자동이체 후 남을 돈</span>
+	           <span class="float-right">1,600,000원</span>
+	        </h3>
+        </a>
 	</div>
 	<div class = "container">
-		<h1>이체 계좌 관리 </h1>
-		<div id="chart_div" style="width:400; height:300"></div>
+		<h3>이체 계좌 관리 </h3>
+		
 	</div>
+	<div id="chart_div" style="width:100%; height:500px;"></div>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/jquery-2.1.4.min.js"></script>
@@ -67,9 +91,8 @@
 
         // Set chart options
         var options = {
+        	legend: 'none',
         	title: '이체 금액',
-        	width:800,
-        	height:600,
         	pieSliceText : 'label'
         };
 
@@ -82,10 +105,11 @@
     function selectHandler() {
     	var selectedItem = chart.getSelection()[0];
     	var value = data.getValue(selectedItem.row, 0);
+        
         //location.href = "http://www.naver.com";
         console.log ('legend onClick', event);
         console.log('legd item', data.kc[0][0]);
-        location.href = "http://www.naver.com";
+        location.href = "modifytransfer.html";
     }
 </script>
 </html>

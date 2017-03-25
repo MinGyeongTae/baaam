@@ -1,6 +1,20 @@
+h1, h2, h3, h4, h5, h6{
+	color: #58269A;
+}
+ul, li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+hr{
+	border-color: #58269A;
+}
 .bg-dark{
 	background-color: #58269a;
 	color: white;
+}
+.float-right{
+	float: right;
 }
 .container{
 	padding-right: 30px;
@@ -68,4 +82,21 @@
 }
 .navbar-default .navbar-brand:hover{
 	color: #333;
+}
+a.main{
+	color: #333;
+	font-size: 16px;
+	margin-bottom: 70px;
+	display: block;
+	
+}
+a.main:hover{
+	text-decoration: none;
+	color: #333;
+}
+.black{
+	color: #333;
+}
+.seekbar-negative, .seekbar-thumb-needle{
+	background-color: #d5c1ee;
 }

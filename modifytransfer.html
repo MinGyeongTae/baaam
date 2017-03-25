@@ -32,16 +32,42 @@
         <link rel="stylesheet" type="text/css" href="seekbar.css"/>
     </head>
 <body>
+	<nav class="navbar navbar-default">
+		<div class='container'>
+			<div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+		      	<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-chevron-left"></span></a>
+		      	
+		      	<a class="navbar-brand" href="#">이체금액 수정</a>
+		    </div>
+    		
+		</div>
+	</nav>
     <div class="container">
 
         <div class="form-group">
-        <h3>이체금액 수정</h3>    	
-        <div id="seekbar-container" style="width:100%;height:40px">
+        <h3>생활비
+        	<span class="float-right">NH농협은행 302-0****-71</span>
+        </h3>  
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" id="transfer_acc" class="form-group">
-            </input>
-        </div>
+	        <div class="input-group">
+			  	<input type="text" class="form-control" value="600000" id="transfer_acc"  aria-describedby="basic-addon2">
+			  	<span class="input-group-addon" id="basic-addon2">원</span>
+			</div> 
+		</div>
+	   	<div class="form-group">
+		    <div id="seekbar-container" style="width:100%;height:40px">
+		    </div>
+	  	</div>
+        <h4 class="form-group float-right">
+		   남는 돈 123,330원 
+	  	</h4>
         <div class="form-group">
           <input class="btn btn-default btn-lg btn-block" value="저장" onclick="javascript:chkValue()">
         </div>
@@ -51,14 +77,21 @@
             <script src="js/bootstrap.min.js"></script>
     </div>
     <script type="text/javascript">
+   	var mvalue = 60;//60만원 
+   	//var min =  mvalue*0.8;
+   	var max = mvalue * 2;
     var seekbar = new Seekbar.Seekbar({
         renderTo: "#seekbar-container",
-        minValue: 0, maxValue: 100,
+        minValue: 0, maxValue: max,
+        value : mvalue,
+        negativeColor : '#d5c1ee',
+        thumbColor : '#d5c1ee',
+
         valueListener: function (value) {
             this.setValue(Math.round(value));
             updatePreview();
         },
-        barSize:15,
+        barSize:3,
         needleSize:0.2
     });
     function updatePreview() {
@@ -66,7 +99,7 @@
         $("#transfer_acc").val(w1.toUpperCase());
     }
     function chkValue(){
-        if($("#transfer_acc").val()<=100)
+        if($("#transfer_acc").val()<=max)
         {
             seekbar.setValue($("#transfer_acc").val());
             drawToast("값을 저장하였습니다.");
