@@ -29,7 +29,7 @@
 		</div>
 	</nav>
 	<div class="container">
-		<a class="main" href="addregulartransfer.html">	
+		<a class="main" href="modify_regular.html">	
 			<h1 class="purple">월급통장 
 				<small class="float-right">NH농협 302-0********-71</small>
 			</h1>
@@ -204,6 +204,19 @@ if(jadong3_num!=0){$("#jadong3_num").html("-"+jadong3_num.number_format()+"원")
 if(jadong4_num!=0){$("#jadong4_num").html("-"+jadong4_num.number_format()+"원");}
 if(jadong5_num!=0){$("#jadong5_num").html("-"+jadong5_num.number_format()+"원");}
 $("#remain").html(remain.number_format()+"원");
+
+var str = "modify_regular.jsp?";
+if(jadong1_str !== ""){ str = str+ "jadong1_str=" + jadong1_str;}
+if(jadong2_str !== ""){ str = str+ "&"+ "jadong2_str=" + jadong2_str;}
+if(jadong3_str !== ""){ str = str+ "&"+ "jadong3_str=" + jadong3_str;}
+if(jadong4_str !== ""){ str = str+ "&"+ "jadong4_str=" + jadong4_str;}
+if(jadong5_str !== ""){ str = str+ "&"+ "jadong5_str=" + jadong5_str;}
+if(jadong1_num != 0){ str = str+ "&"+"jadong1_num=" + jadong1_num;}
+if(jadong2_num != 0){ str = str+ "&"+"jadong2_num=" + jadong2_num;}
+if(jadong3_num != 0){ str = str+ "&"+"jadong3_num=" + jadong3_num;}
+if(jadong4_num != 0){ str = str+ "&"+"jadong4_num=" + jadong4_num;}
+if(jadong5_num != 0){ str = str+ "&"+"jadong5_num=" + jadong5_num;}
+$(".main").attr('href',str);
 </script>
 
 
