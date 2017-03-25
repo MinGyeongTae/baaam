@@ -10,4 +10,4 @@
 
 </body>
 </html>
-<%  response.sendRedirect("index_none.html");%>
+<% response.sendRedirect("index_none.html");%>
