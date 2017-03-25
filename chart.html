@@ -28,16 +28,26 @@
 			var ctx = document.getElementById("myChart").getContext("2d");
 			var onClickItem = function(event, item){
 				 console.log ('legend onClick', event);
-                 console.log('legd item', item);
-				location.href="http://www.naver.com";
+                 console.log('legd item', item[0]._model.label);
+				 switch(item[0]._model.label){
+				 	case '적금':
+				 		location.href = "http://www.naver.com";
+				 		break;
+				 	case '예금':
+				 		location.href = "http://www.nate.com";
+				 		break;
+				 	case '비상금':
+				 		location.href = "http://www.daum.net";
+				 		break;
+				 }
 			}
 			var myPieChart = new Chart(ctx,{
 				type: 'pie',
 				data : {
 					labels: [
-					"Red",
-					"Blue",
-					"Yellow"
+					"적금",
+					"예금",
+					"비상금"
 					],
 					datasets: [
 					{
