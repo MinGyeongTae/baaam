@@ -130,7 +130,7 @@
 	
 		<div class="form-group">
 			<!-- <a class="btn btn-default btn-lg btn-block" href="join.html">이체하기</a> -->
-			<a class="btn btn-default btn-lg btn-block" onclick="alert('이체되었습니다.');location.href='chart2.jsp'+'?'+str">이체하기</a>
+			<a class="btn btn-default btn-lg btn-block" onclick="alert('이체되었습니다.');">이체하기</a>
 		</div>
 	</div>
 	
@@ -163,8 +163,8 @@
                   	['living 250000', 250000],
                   	['date 100000', 100000],
                   	['fee 500000', 500000],
-                  	['remain <%=remain-250000-100000-500000%>',<%=remain-250000-100000-500000%>],
-                  	['add',<%=remain*0.1%>]
+                  	['remain <%=remain-((250000+100000+500000)*2)%>',<%=remain-((250000+100000+500000)*2)%>],
+                  	['add',<%=(remain-(250000+100000+500000))*0.1%>]
                   	]);
 
         // Set chart options
