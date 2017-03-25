@@ -143,11 +143,11 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-                  	['생활비 ', 250000],
-                  	['데이트통장 ', 100000],
-                  	['월세 ', 500000],
-                  	['나머지',<%=remain-250000-100000-500000%>],
-                  	['통장추가',<%=remain*0.1%>]
+                  	['living 250000', 250000],
+                  	['date 100000', 100000],
+                  	['fee 500000', 500000],
+                  	['remain <%=remain-250000-100000-500000%>',<%=remain-250000-100000-500000%>],
+                  	['add',<%=remain*0.1%>]
                   	]);
 
         // Set chart options
@@ -162,15 +162,17 @@
         chart.draw(data, options);
     }
 
-    function selectHandler() {
+    function selectHandler(e) {
     	var selectedItem = chart.getSelection()[0];
     	var value = data.getValue(selectedItem.row, 0);
         
         //location.href = "http://www.naver.com";
         console.log ('legend onClick', event);
         console.log('legd item', data.kc[0][0]);
-        location.href = "modifytransfer.html";
+        //alert(data.getValue(chart.getSelection()[0].row, 1));
+        location.href = "modifytransfer.jsp?title="+data.getValue(chart.getSelection()[0].row, 0) + "&remain="+<%=remain%> + "&cur_cost="+data.getValue(chart.getSelection()[0].row, 1)+"&"+str;
     }
+
 </script>
 </html>
 
@@ -209,7 +211,8 @@ if(jadong4_num!=0){$("#jadong4_num").html("-"+jadong4_num.number_format()+"원")
 if(jadong5_num!=0){$("#jadong5_num").html("-"+jadong5_num.number_format()+"원");}
 $("#remain").html(remain.number_format()+"원");
 
-var str = "modify_regular.jsp?";
+var modi_href= "modify_regular.jsp?";
+var str = "";
 if(jadong1_str !== ""){ str = str+ "jadong1_str=" + jadong1_str;}
 if(jadong2_str !== ""){ str = str+ "&"+ "jadong2_str=" + jadong2_str;}
 if(jadong3_str !== ""){ str = str+ "&"+ "jadong3_str=" + jadong3_str;}
@@ -220,7 +223,7 @@ if(jadong2_num != 0){ str = str+ "&"+"jadong2_num=" + jadong2_num;}
 if(jadong3_num != 0){ str = str+ "&"+"jadong3_num=" + jadong3_num;}
 if(jadong4_num != 0){ str = str+ "&"+"jadong4_num=" + jadong4_num;}
 if(jadong5_num != 0){ str = str+ "&"+"jadong5_num=" + jadong5_num;}
-$(".main").attr('href',str);
+$(".main").attr('href',modi_href+str);
 </script>
 
 
