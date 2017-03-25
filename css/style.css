@@ -34,6 +34,9 @@ hr{
 	padding: 70px 0;
 	color: white;
 }
+.join-title h1{
+	color: white;
+}
 .btn-primary{
 	background-color: #ffe209;
 	border-color: transparent;
