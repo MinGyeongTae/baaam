@@ -15,6 +15,9 @@
 .logo-typo h1{
 	font-size: 80px;
 }
+.join-title{
+	padding: 70px 0;
+}
 .btn-primary{
 	background-color: #ffe209;
 	border-color: transparent;
@@ -27,4 +30,42 @@
 	background-color: transparent;
 	color: white;
 	border-color: white;
+}
+.btn-default{
+	background-color: #58269A;
+	color: white;
+	border-color: transparent;
+}
+.btn-default:hover{
+	background-color: #4a188d;
+	color: white;
+}
+.icon .glyphicon{
+	padding: 20px;
+
+}
+.icon-empty .glyphicon{
+	color: white;
+	background-color: #DDCCF2;
+	border-radius: 50%;
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+.icon-empty{
+	color: #ddccf2;
+	font-size: 24px;
+}
+.navbar-brand img{
+	margin-top: -10px;
+	margin-left: -10px;
+}
+.navbar-default{
+	background-color: white;
+	border-bottom: solid 1px #58269A;
+}
+.navbar-default .navbar-brand{
+	color: #333;
+}
+.navbar-default .navbar-brand:hover{
+	color: #333;
 }

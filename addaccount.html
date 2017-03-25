@@ -27,10 +27,25 @@
         <![endif]-->
     </head>
 <body>
+	<nav class="navbar navbar-default">
+		<div class='container'>
+			<div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+		      	<a class="navbar-brand" href="chart.html"><span class="glyphicon glyphicon-chevron-left"></span></a>
+		      	<a class="navbar-brand" href="#">출금계좌 등록</a>
+		    </div>
+    		
+		</div>
+	</nav>
     <div class="container">
 	<form action="certification.html">
         <div class="form-group">
-            <h3>은행</h3>
+            <label for="Bank">은행</label>
     		<select class="form-control" name="Bank">
                 <option value="">은행선택</option>
                 <option value="NH농협은행">NH농협은행</option>
@@ -68,11 +83,11 @@
             </select>
         </div>
         <div class="form-group">
-          <h3>계좌번호</h3>
+          <label for="acc_number">계좌번호</label>
           <input class="form-control" type="text" name="acc_number">
         </div>
         <div class="form-group">
-          <h3>통장 별명</h3>
+          <label for="acc_nick">통장 별명</label>
 		  <input class="form-control" type="text" name="acc_nick">
         </div>
         <div class="form-group">
