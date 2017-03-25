@@ -43,7 +43,7 @@
 		</div>
 	</nav>
     <div class="container">
-	<form>
+	<form action="chart.html" >
         <div class="form-group">
           <label for="regular_name">자동 이체 내용</label>
           <input class="form-control" type="text" name="regular_name">
@@ -51,6 +51,10 @@
         <div class="form-group">
           <label for="regular_date">이체 날짜(1~31일)</label>
 		  <input class="form-control" type="number" name="regular_date" max="31" min="1">
+        </div>
+        <div class="form-group">
+          <label for="regular_date">금액</label>
+		  <input class="form-control" type="number" name="amount">
         </div>
         <div class="form-group">
 		  <input class="btn btn-default btn-lg btn-block" type="submit" value="확인">
