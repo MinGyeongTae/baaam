@@ -156,9 +156,7 @@
 			onAnimationProgress: function(){},
 
 			// Function - Will fire on animation completion.
-			onAnimationComplete: function(){}
-
-		}
+			onAnimationComplete: function(){},
 	};
 
 	//Create a dictionary of chart types, to allow for extension of existing types
