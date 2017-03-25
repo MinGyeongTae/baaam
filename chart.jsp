@@ -119,15 +119,21 @@
 	        <hr>
 	        <h3 class="form-group">
 	           <span>자동이체 후 남을 돈</span>
-	           <span class="float-right" id="remain">1,600,000원</span>
+	           <span class="float-right" id="remain"></span>
 	        </h3>
         </a>
 	</div>
 	<div class = "container">
 		<h3>이체 계좌 관리 </h3>
 		
+		<div id="chart_div" style="width:100%; height:500px;"></div>
+	
+		<div class="form-group">
+			<!-- <a class="btn btn-default btn-lg btn-block" href="join.html">이체하기</a> -->
+			<a class="btn btn-default btn-lg btn-block" onclick="alert('이체되었습니다.');">이체하기</a>
+		</div>
 	</div>
-	<div id="chart_div" style="width:100%; height:500px;"></div>
+	
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="js/jquery-2.1.4.min.js"></script>
