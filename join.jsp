@@ -16,3 +16,5 @@ id:<%=id %><br>
 pw:<%=passwd %><br>
 </body>
 </html>
+
+<% response.sendRedirect("start.html");%>
