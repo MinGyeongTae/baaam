@@ -100,3 +100,32 @@ a.main:hover{
 .seekbar-negative, .seekbar-thumb-needle{
 	background-color: #d5c1ee;
 }
+.account-list{
+	color: #333;
+	
+}
+.account-list a{
+	color: #333;
+	text-decoration: none;
+}
+.account-list h3{
+	color: #333;
+	margin-top: 5px;
+}
+.account-list p{
+	color: #999;
+}
+.account-list h3 span{
+	color: #58269A;
+}
+.account-list a:hover{
+	text-decoration: none;
+}
+.account-list li a{
+	
+	padding: 10px 0; 
+	display: block;
+}
+.account-list li{
+	border-bottom: solid 1px #eee;
+}
