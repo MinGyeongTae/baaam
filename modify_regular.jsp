@@ -48,32 +48,32 @@
         	<ul class="account-list">
 				<li>
 					<a class="main1" id="1" href="addregulartransfer.jsp?">
-						<p id="">매달 xx일</p>
+						<p id="jadong1_day"></p>
 						<h3><span class="" id="jadong1_str"></span><span class="float-right" id="jadong1_num"></span></h3>		
 					</a>
 				</li>
 				
 				<li>
 					<a class="main1" id="2" href="addregulartransfer.jsp?">
-						<p id="">매달 xx일</p>
+						<p id="jadong2_day"></p>
 						<h3><span class="" id="jadong2_str"></span><span class="float-right" id="jadong2_num"></span></h3>		
 					</a>
 				</li>
 				<li>
 					<a class="main1" id="3" href="addregulartransfer.jsp?">
-						<p id="">매달 xx일</p>
+						<p id="jadong3_day"></p>
 						<h3><span class="" id="jadong3_str"></span><span class="float-right" id="jadong3_num"></span></h3>		
 					</a>
 				</li>
 				<li>
 					<a class="main1" id="4" href="addregulartransfer.jsp?">
-						<p id="">매달 xx일</p>
+						<p id="jadong4_day"></p>
 						<h3><span class="" id="jadong4_str"></span><span class="float-right" id="jadong4_num"></span></h3>		
 					</a>
 				</li>
 				<li>
 					<a class="main1" id="5" href="addregulartransfer.jsp?">
-						<p id="">매달 xx일</p>
+						<p id="jadong5_day"></p>
 						<h3><span class="" id="jadong5_str"></span><span class="float-right" id="jadong5_num"></span></h3>		
 					</a>
 				</li>
@@ -100,6 +100,12 @@
 	String jadong4_str = "";
 	String jadong5_str = "";
 
+	int jadong1_day = 0;
+	int jadong2_day = 0;
+	int jadong3_day = 0;
+	int jadong4_day = 0;
+	int jadong5_day = 0;
+
 	int jadong1_num = 0;
 	int jadong2_num = 0;
 	int jadong3_num = 0;
@@ -125,22 +131,29 @@
 	if(request.getParameter("jadong5_str") != null){
 		jadong5_str = request.getParameter("jadong5_str");
 	}
+
 	
 	if(!"".equals(jadong1_str)){
-		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));	
+		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));
+		jadong1_day = Integer.parseInt(request.getParameter("jadong1_day"));	
 	}
 	if(!"".equals(jadong2_str)){
-		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));	
+		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));
+		jadong2_day = Integer.parseInt(request.getParameter("jadong2_day"));		
 	}
 	if(!"".equals(jadong3_str)){
-		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));	
+		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));
+		jadong3_day = Integer.parseInt(request.getParameter("jadong3_day"));		
 	}
 	if(!"".equals(jadong4_str)){
-		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));	
+		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));
+		jadong4_day = Integer.parseInt(request.getParameter("jadong4_day"));		
 	}
 	if(!"".equals(jadong5_str)){
-		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));	
+		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));
+		jadong5_day = Integer.parseInt(request.getParameter("jadong5_day"));		
 	}
+	
 	
 %>
 
@@ -156,6 +169,13 @@
 	var jadong3_str = "<%=jadong3_str%>";
 	var jadong4_str = "<%=jadong4_str%>";
 	var jadong5_str = "<%=jadong5_str%>";
+	
+	var jadong1_day = "<%=jadong1_day%>";
+	var jadong2_day = "<%=jadong2_day%>";
+	var jadong3_day = "<%=jadong3_day%>";
+	var jadong4_day = "<%=jadong4_day%>";
+	var jadong5_day = "<%=jadong5_day%>";
+	
 	var jadong1_num = <%=jadong1_num%>;
 	var jadong2_num = <%=jadong2_num%>;
 	var jadong3_num = <%=jadong3_num%>;
@@ -170,6 +190,13 @@ $("#jadong2_str").html(jadong2_str);
 $("#jadong3_str").html(jadong3_str);
 $("#jadong4_str").html(jadong4_str);
 $("#jadong5_str").html(jadong5_str);
+
+if(jadong1_day!=0){$("#jadong1_day").html("매달 "+jadong1_day+"일");}
+if(jadong2_day!=0){$("#jadong2_day").html("매달 "+jadong2_day+"일");}
+if(jadong3_day!=0){$("#jadong3_day").html("매달 "+jadong3_day+"일");}
+if(jadong4_day!=0){$("#jadong4_day").html("매달 "+jadong4_day+"일");}
+if(jadong5_day!=0){$("#jadong5_day").html("매달 "+jadong5_day+"일");}
+
 if(jadong1_num!=0){$("#jadong1_num").html(jadong1_num.number_format()+"원");}
 if(jadong2_num!=0){$("#jadong2_num").html(jadong2_num.number_format()+"원");}
 if(jadong3_num!=0){$("#jadong3_num").html(jadong3_num.number_format()+"원");}
@@ -183,6 +210,13 @@ if(jadong2_str !== ""){ str = str+ "&"+ "jadong2_str=" + jadong2_str;}
 if(jadong3_str !== ""){ str = str+ "&"+ "jadong3_str=" + jadong3_str;}
 if(jadong4_str !== ""){ str = str+ "&"+ "jadong4_str=" + jadong4_str;}
 if(jadong5_str !== ""){ str = str+ "&"+ "jadong5_str=" + jadong5_str;}
+
+if(jadong1_day != 0){ str = str+ "&"+"jadong1_day=" + jadong1_day;}
+if(jadong2_day != 0){ str = str+ "&"+"jadong2_day=" + jadong2_day;}
+if(jadong3_day != 0){ str = str+ "&"+"jadong3_day=" + jadong3_day;}
+if(jadong4_day != 0){ str = str+ "&"+"jadong4_day=" + jadong4_day;}
+if(jadong5_day != 0){ str = str+ "&"+"jadong5_day=" + jadong5_day;}
+
 if(jadong1_num != 0){ str = str+ "&"+"jadong1_num=" + jadong1_num;}
 if(jadong2_num != 0){ str = str+ "&"+"jadong2_num=" + jadong2_num;}
 if(jadong3_num != 0){ str = str+ "&"+"jadong3_num=" + jadong3_num;}

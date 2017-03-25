@@ -12,6 +12,12 @@
 	String jadong3_str = "";
 	String jadong4_str = "";
 	String jadong5_str = "";
+	
+	int jadong1_day = 0;
+	int jadong2_day = 0;
+	int jadong3_day = 0;
+	int jadong4_day = 0;
+	int jadong5_day = 0;
 
 	int jadong1_num = 0;
 	int jadong2_num = 0;
@@ -23,10 +29,9 @@
 	if(request.getParameter("balance") != null){
 		balance = Integer.parseInt(request.getParameter("balance"));	
 	}
-	
+
 	if(request.getParameter("jadong1_str") != null){
 		jadong1_str = request.getParameter("jadong1_str");
-		System.out.println(request.getParameter("jadong1_str"));
 	}
 	if(request.getParameter("jadong2_str") != null){
 		jadong2_str = request.getParameter("jadong2_str");
@@ -40,21 +45,27 @@
 	if(request.getParameter("jadong5_str") != null){
 		jadong5_str = request.getParameter("jadong5_str");
 	}
+
 	
 	if(!"".equals(jadong1_str)){
-		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));	
+		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));
+		jadong1_day = Integer.parseInt(request.getParameter("jadong1_day"));	
 	}
 	if(!"".equals(jadong2_str)){
-		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));	
+		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));
+		jadong2_day = Integer.parseInt(request.getParameter("jadong2_day"));		
 	}
 	if(!"".equals(jadong3_str)){
-		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));	
+		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));
+		jadong3_day = Integer.parseInt(request.getParameter("jadong3_day"));		
 	}
 	if(!"".equals(jadong4_str)){
-		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));	
+		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));
+		jadong4_day = Integer.parseInt(request.getParameter("jadong4_day"));		
 	}
 	if(!"".equals(jadong5_str)){
-		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));	
+		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));
+		jadong5_day = Integer.parseInt(request.getParameter("jadong5_day"));		
 	}
 	
 	remain=balance -(jadong1_num + jadong2_num + jadong3_num + jadong4_num + jadong5_num);
@@ -189,6 +200,13 @@
 	var jadong3_str = "<%=jadong3_str%>";
 	var jadong4_str = "<%=jadong4_str%>";
 	var jadong5_str = "<%=jadong5_str%>";
+	
+	var jadong1_day = "<%=jadong1_day%>";
+	var jadong2_day = "<%=jadong2_day%>";
+	var jadong3_day = "<%=jadong3_day%>";
+	var jadong4_day = "<%=jadong4_day%>";
+	var jadong5_day = "<%=jadong5_day%>";
+	
 	var jadong1_num = <%=jadong1_num%>;
 	var jadong2_num = <%=jadong2_num%>;
 	var jadong3_num = <%=jadong3_num%>;
@@ -218,6 +236,13 @@ if(jadong2_str !== ""){ str = str+ "&"+ "jadong2_str=" + jadong2_str;}
 if(jadong3_str !== ""){ str = str+ "&"+ "jadong3_str=" + jadong3_str;}
 if(jadong4_str !== ""){ str = str+ "&"+ "jadong4_str=" + jadong4_str;}
 if(jadong5_str !== ""){ str = str+ "&"+ "jadong5_str=" + jadong5_str;}
+
+if(jadong1_day != 0){ str = str+ "&"+"jadong1_day=" + jadong1_day;}
+if(jadong2_day != 0){ str = str+ "&"+"jadong2_day=" + jadong2_day;}
+if(jadong3_day != 0){ str = str+ "&"+"jadong3_day=" + jadong3_day;}
+if(jadong4_day != 0){ str = str+ "&"+"jadong4_day=" + jadong4_day;}
+if(jadong5_day != 0){ str = str+ "&"+"jadong5_day=" + jadong5_day;}
+
 if(jadong1_num != 0){ str = str+ "&"+"jadong1_num=" + jadong1_num;}
 if(jadong2_num != 0){ str = str+ "&"+"jadong2_num=" + jadong2_num;}
 if(jadong3_num != 0){ str = str+ "&"+"jadong3_num=" + jadong3_num;}

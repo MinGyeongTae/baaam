@@ -13,6 +13,12 @@
 	String jadong4_str = "";
 	String jadong5_str = "";
 
+	int jadong1_day = 0;
+	int jadong2_day = 0;
+	int jadong3_day = 0;
+	int jadong4_day = 0;
+	int jadong5_day = 0;
+
 	int jadong1_num = 0;
 	int jadong2_num = 0;
 	int jadong3_num = 0;
@@ -42,20 +48,26 @@
 		jadong5_str = request.getParameter("jadong5_str");
 	}
 	
+
 	if(!"".equals(jadong1_str)){
-		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));	
+		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));
+		jadong1_day = Integer.parseInt(request.getParameter("jadong1_day"));	
 	}
 	if(!"".equals(jadong2_str)){
-		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));	
+		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));
+		jadong2_day = Integer.parseInt(request.getParameter("jadong2_day"));		
 	}
 	if(!"".equals(jadong3_str)){
-		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));	
+		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));
+		jadong3_day = Integer.parseInt(request.getParameter("jadong3_day"));		
 	}
 	if(!"".equals(jadong4_str)){
-		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));	
+		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));
+		jadong4_day = Integer.parseInt(request.getParameter("jadong4_day"));		
 	}
 	if(!"".equals(jadong5_str)){
-		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));	
+		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));
+		jadong5_day = Integer.parseInt(request.getParameter("jadong5_day"));		
 	}
 	
 %>
@@ -119,6 +131,13 @@
 		<%if(order!=3){%><input type="hidden" name="jadong3_str" id="jadong3_str" value=''/><%}%>
 		<%if(order!=4){%><input type="hidden" name="jadong4_str" id="jadong4_str" value=''/><%}%>
 		<%if(order!=5){%><input type="hidden" name="jadong5_str" id="jadong5_str" value=''/><%}%>
+		
+		<%if(order!=1){%><input type="hidden" name="jadong1_day" id="jadong1_day" value=''/><%}%>
+		<%if(order!=2){%><input type="hidden" name="jadong2_day" id="jadong2_day" value=''/><%}%>
+		<%if(order!=3){%><input type="hidden" name="jadong3_day" id="jadong3_day" value=''/><%}%>
+		<%if(order!=4){%><input type="hidden" name="jadong4_day" id="jadong4_day" value=''/><%}%>
+		<%if(order!=5){%><input type="hidden" name="jadong5_day" id="jadong5_day" value=''/><%}%>
+		
 		<%if(order!=1){%><input type="hidden" name="jadong1_num" id="jadong1_num" value=''/><%}%>
 		<%if(order!=2){%><input type="hidden" name="jadong2_num" id="jadong2_num" value=''/><%}%>
 		<%if(order!=3){%><input type="hidden" name="jadong3_num" id="jadong3_num" value=''/><%}%>
@@ -146,6 +165,13 @@
 	var jadong3_str = "<%=jadong3_str%>";
 	var jadong4_str = "<%=jadong4_str%>";
 	var jadong5_str = "<%=jadong5_str%>";
+
+	var jadong1_day = <%=jadong1_day%>;
+	var jadong2_day = <%=jadong2_day%>;
+	var jadong3_day = <%=jadong3_day%>;
+	var jadong4_day = <%=jadong4_day%>;
+	var jadong5_day = <%=jadong5_day%>;
+	
 	var jadong1_num = <%=jadong1_num%>;
 	var jadong2_num = <%=jadong2_num%>;
 	var jadong3_num = <%=jadong3_num%>;
@@ -161,6 +187,13 @@ $("#jadong2_str").attr('value',jadong2_str);
 $("#jadong3_str").attr('value',jadong3_str);
 $("#jadong4_str").attr('value',jadong4_str);
 $("#jadong5_str").attr('value',jadong5_str);
+
+$("#jadong1_day").attr('value',jadong1_day);
+$("#jadong2_day").attr('value',jadong2_day);
+$("#jadong3_day").attr('value',jadong3_day);
+$("#jadong4_day").attr('value',jadong4_day);
+$("#jadong5_day").attr('value',jadong5_day);
+
 $("#jadong1_num").attr('value',jadong1_num);
 $("#jadong2_num").attr('value',jadong2_num);
 $("#jadong3_num").attr('value',jadong3_num);
