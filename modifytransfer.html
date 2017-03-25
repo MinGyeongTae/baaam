@@ -28,18 +28,23 @@
 
         <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
         <script type="text/javascript" src="seekbar.js"></script>
+        <script type="text/javascript" src="toast.js"></script>
         <link rel="stylesheet" type="text/css" href="seekbar.css"/>
     </head>
 <body>
     <div class="container">
-	<form action="certification.html">
+
         <div class="form-group">
         <h3>이체금액 수정</h3>    	
-        <div id="seekbar-container" style="width:400px;height:40px">
-        <input class="form-control" type="text" value="dd" id = "transfer_acc" class="form-group">
-        </input>
+        <div id="seekbar-container" style="width:100%;height:40px">
         </div>
-	</form>
+        <div class="form-group">
+            <input class="form-control" type="text" id="transfer_acc" class="form-group">
+            </input>
+        </div>
+        <div class="form-group">
+          <input class="btn btn-default btn-lg btn-block" value="저장" onclick="javascript:chkValue()">
+        </div>
             <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
@@ -51,18 +56,28 @@
         minValue: 0, maxValue: 100,
         valueListener: function (value) {
             this.setValue(Math.round(value));
-            updateColorPreview();
+            updatePreview();
         },
         barSize:15,
         needleSize:0.2
     });
-    function updateColorPreview() {
-        var percent = seekbar.value.toString();
-        var colorCode = (percent.length == 1 ? "0": "") + percent;
-
-        $("#transfer_acc").val(colorCode.toUpperCase());
+    function updatePreview() {
+        var w1 = seekbar.value.toString();
+        $("#transfer_acc").val(w1.toUpperCase());
     }
-    updateColorPreview();
+    function chkValue(){
+        if($("#transfer_acc").val()<=100)
+        {
+            seekbar.setValue($("#transfer_acc").val());
+            drawToast("값을 저장하였습니다.");
+        }
+        else{
+            drawToast("값을 다시입력하세요.");
+        }
+      
+    }
+    chkValue();
+    updatePreview();
     </script>
 
 </body>
