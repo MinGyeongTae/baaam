@@ -1,0 +1,128 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+
+	<!-- 부트스트랩 -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class='container'>
+			<div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+		      	<a class="navbar-brand" href="#"><img src="../image/logo40.png"></a>
+		      	<a class="navbar-brand" href="#">baaam.</a>
+		    </div>
+    		
+		</div>
+	</nav>
+	<div class="container">
+		<a class="main" href="addregulartransfer.html">	
+			<h1 class="purple">월급통장 
+				<small class="float-right">NH농협 302-0********-71</small>
+			</h1>
+	        <h2 class="black">
+	           잔액<span class="float-right" id="balance">3,000,000원 </span>
+	        </h2>
+	        <hr>
+	        <div class="form-group">
+	            <h4 class="purple">예약된 자동이체</h4>
+	        </div>
+		    <ul class="form-group">
+				<li><span id="jadong1_str">월세</span><span class="float-right" id="jadong1_num">400,000원</span></li>
+				<li><span id="jadong2_str">주택청약</span><span class="float-right" id="jadong2_num">800,000원</span></li>
+				
+		    </ul>
+	        <hr>
+	        <h3 class="form-group">
+	           <span>자동이체 후 남을 돈</span>
+	           <span class="float-right" id="remain">1,800,000원</span>
+	        </h3>
+        </a>
+	</div>
+	<div class="container chart-container" style="">
+		<h3 >이체 계좌 관리 </h3>
+		
+		<div id="chart_div"></div>
+	
+		<div class="form-group">
+			<!-- <a class="btn btn-default btn-lg btn-block" href="join.html">이체하기</a> -->
+			<a class="btn btn-default btn-lg btn-block" onclick="alert('이체되었습니다.');location.href='chart2.jsp'+'?'+str">이체하기</a>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../js/jquery-2.1.4.min.js"></script>
+	<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+<script type="text/javascript">
+	var data;
+	var chart;
+
+      // Load the Visualization API and the piechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create our data table.
+        data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+        	['추가하기', 15000],
+        	['남은 돈 10만5천원', 15000],
+        	['생활비 60만원', 30000]		
+        ]);
+
+        // Set chart options
+        var options = {
+        	legend: 'none',
+        	pieSliceText : 'label',
+	       	pieSliceTextStyle: {    
+	            fontSize: 18
+	        },
+	        pieStartAngle: 180,
+	         tooltip: { trigger: 'none' },
+           slices: [{color: '#ccc'}, {color: '#eee'}, {color: '#d5c1ee'}, {color: '#875fbc'}, {color: '#0eb882'}, {color: '#fdef0b'}]
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        google.visualization.events.addListener(chart, 'select', selectHandler);
+        chart.draw(data, options);
+    }
+
+    function selectHandler() {
+    	var selectedItem = chart.getSelection()[0];
+    	var value = data.getValue(selectedItem.row, 0);
+        
+        //location.href = "http://www.naver.com";
+        console.log ('legend onClick', event);
+        console.log('legd item', data.kc[0][0]);
+        location.href = "modifytransfer.html";
+    }
+</script>
+</html>
+
+
+
+

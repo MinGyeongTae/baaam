@@ -34,6 +34,9 @@ hr{
 	padding: 70px 0;
 	color: white;
 }
+.join-title h1{
+	color: white;
+}
 .btn-primary{
 	background-color: #ffe209;
 	border-color: transparent;
@@ -96,6 +99,14 @@ a.main:hover{
 	text-decoration: none;
 	color: #333;
 }
+a.main h1{
+	font-size: 24px;
+	margin: 7px 0;
+} a.main h2{
+	font-size: 20px;
+	margin: 5px 0;
+}
+
 .black{
 	color: #333;
 }
@@ -130,4 +141,16 @@ a.main:hover{
 }
 .account-list li{
 	border-bottom: solid 1px #eee;
+}
+.chart-container{
+	margin-top: -100px; overflow: hidden;
+}
+.chart-container h3{
+	position: relative; top: 90px; z-index: 2000;
+}
+.chart-container #chart_div{
+	 width:180%; height:750px; margin: 0 -180px;
+}
+.chart-container .form-group{
+	position: relative; bottom: 80px; z-index: 2000;
 }
