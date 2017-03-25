@@ -1,0 +1,71 @@
+<!--<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+	// 파람값 획득
+	String uid = request.getParameter("uid");
+	// 세션 보관
+	session.setAttribute("uid", uid);
+%>    -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>session</title>
+</head>
+<body>
+	<form action="certification.html">
+                <h3>은행</h3>
+		<select name="Bank">
+                    <option value="">은행선택</option>
+                    <option value="NH농협은행">NH농협은행</option>
+                    <option value="신한은행">신한은행</option>
+                    <option value="제주은행">제주은행</option>
+                    <option value="국민은행">국민은행</option>
+                    <option value="농협은행">농협은행</option>
+                    <option value="우리은행">우리은행</option>
+                    <option value="KEB하나은행">KEB하나은행</option>
+                    <option value="외환은행">외환은행</option>
+                    <option value="우체국">우체국</option>
+                    <option value="기업은행">기업은행</option>
+                    <option value="SC은행">SC은행</option>
+                    <option value="비엔피파리바은행">비엔피파리바은행</option>
+                    <option value="씨티은행">씨티은행</option>
+                    <option value="외환은행">외환은행</option>
+                    <option value="수협은행">수협은행</option>
+                    <option value="산업은행">산업은행</option>
+                    <option value="도이치">도이치</option>
+                    <option value="상호저축은행">상호저축은행</option>
+                    <option value="신용협동조합">신용협동조합</option>
+                    <option value="새마을금고">새마을금고</option>
+                    <option value="지역농·축협">지역농·축협</option>
+                    <option value="경남은행">경남은행</option>
+                    <option value="전북은행">전북은행</option>
+                    <option value="광주은행">광주은행</option>
+                    <option value="부산은행">부산은행</option>
+                    <option value="대구은행">대구은행</option>
+                    <option value="HSBC">HSBC</option>
+                    <option value="JP모간">JP모간</option>
+                    <option value="BOA">BOA</option>
+                    <option value="산림조합">산림조합</option>
+                    <option value="공상은행">공상은행</option>
+                    <option value="케이뱅크">케이뱅크</option>
+                </select>
+                  <h3>계좌번호</h3>
+		<input type="text" name="acc_number">
+                  <h3>통장 별명</h3>
+		<input type="text" name="acc_nick">
+		<input type="submit" value="전송">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
