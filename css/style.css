@@ -2,3 +2,25 @@
 	background-color: #58269a;
 	color: white;
 }
+.center{
+	text-align: center;
+}
+.logo-typo{
+	padding: 100px 0;
+}
+.logo-typo h1{
+	font-size: 80px;
+}
+.btn-primary{
+	background-color: #ffe209;
+	border-color: transparent;
+}
+.btn-primary:hover{
+	background-color: #f1d60d;
+	border-color: transparent;
+}
+.bg-dark .btn-default{
+	background-color: transparent;
+	color: white;
+	border-color: white;
+}
