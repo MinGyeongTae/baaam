@@ -1,11 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%
+	//잔액
+	int balance = 3000000;
+	int remain = 0;
+	//자동이체
+	String jadong1_str = "";
+	String jadong2_str = "";
+	String jadong3_str = "";
+	String jadong4_str = "";
+	String jadong5_str = "";
+
+	int jadong1_num = 0;
+	int jadong2_num = 0;
+	int jadong3_num = 0;
+	int jadong4_num = 0;
+	int jadong5_num = 0;
+
+	request.setCharacterEncoding("UTF-8");
+	if(request.getParameter("balance") != null){
+		balance = Integer.parseInt(request.getParameter("balance"));	
+	}
+	
+	if(request.getParameter("jadong1_str") != null){
+		jadong1_str = request.getParameter("jadong1_str");
+		System.out.println(request.getParameter("jadong1_str"));
+	}
+	if(request.getParameter("jadong2_str") != null){
+		jadong2_str = request.getParameter("jadong2_str");
+	}
+	if(request.getParameter("jadong3_str") != null){
+		jadong3_str = request.getParameter("jadong3_str");
+	}
+	if(request.getParameter("jadong4_str") != null){
+		jadong4_str = request.getParameter("jadong4_str");
+	}
+	if(request.getParameter("jadong5_str") != null){
+		jadong5_str = request.getParameter("jadong5_str");
+	}
+	
+	if(!"".equals(jadong1_str)){
+		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));	
+	}
+	if(!"".equals(jadong2_str)){
+		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));	
+	}
+	if(!"".equals(jadong3_str)){
+		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));	
+	}
+	if(!"".equals(jadong4_str)){
+		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));	
+	}
+	if(!"".equals(jadong5_str)){
+		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));	
+	}
+	
+	remain=balance -(jadong1_num + jadong2_num + jadong3_num + jadong4_num + jadong5_num);
+	
+%>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
 
 	<!-- 부트스트랩 -->
@@ -85,12 +143,12 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-        	['Mush 3', 3],
-        	['Oni 1', 1],
-        	['Oli 1', 1],
-        	['Zuc 1', 1],
-        	['Pep 2', 2]
-        	]);
+                  	['생활비 ', 250000],
+                  	['데이트통장 ', 100000],
+                  	['월세 ', 500000],
+                  	['나머지',<%=remain-250000-100000-500000%>],
+                  	['통장추가',<%=remain*0.1%>]
+                  	]);
 
         // Set chart options
         var options = {
@@ -116,60 +174,6 @@
 </script>
 </html>
 
-<%
-	request.setCharacterEncoding("UTF-8");
-	//잔액
-	int balance = 3000000;
-	//자동이체
-	String jadong1_str = "";
-	String jadong2_str = "";
-	String jadong3_str = "";
-	String jadong4_str = "";
-	String jadong5_str = "";
-
-	int jadong1_num = 0;
-	int jadong2_num = 0;
-	int jadong3_num = 0;
-	int jadong4_num = 0;
-	int jadong5_num = 0;
-
-	if(request.getParameter("balance") != null){
-		balance = Integer.parseInt(request.getParameter("balance"));	
-	}
-	
-	if(request.getParameter("jadong1_str") != null){
-		jadong1_str = request.getParameter("jadong1_str");
-	}
-	if(request.getParameter("jadong2_str") != null){
-		jadong2_str = request.getParameter("jadong2_str");
-	}
-	if(request.getParameter("jadong3_str") != null){
-		jadong3_str = request.getParameter("jadong3_str");
-	}
-	if(request.getParameter("jadong4_str") != null){
-		jadong4_str = request.getParameter("jadong4_str");
-	}
-	if(request.getParameter("jadong5_str") != null){
-		jadong5_str = request.getParameter("jadong5_str");
-	}
-	
-	if(!"".equals(jadong1_str)){
-		jadong1_num = Integer.parseInt(request.getParameter("jadong1_num"));	
-	}
-	if(!"".equals(jadong2_str)){
-		jadong2_num = Integer.parseInt(request.getParameter("jadong2_num"));	
-	}
-	if(!"".equals(jadong3_str)){
-		jadong3_num = Integer.parseInt(request.getParameter("jadong3_num"));	
-	}
-	if(!"".equals(jadong4_str)){
-		jadong4_num = Integer.parseInt(request.getParameter("jadong4_num"));	
-	}
-	if(!"".equals(jadong5_str)){
-		jadong5_num = Integer.parseInt(request.getParameter("jadong5_num"));	
-	}
-	
-%>
 
 <script type="text/javascript">
 	Number.prototype.number_format = function(round_decimal) {
