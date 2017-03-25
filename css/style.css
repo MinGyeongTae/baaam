@@ -2,6 +2,10 @@
 	background-color: #58269a;
 	color: white;
 }
+.container{
+	padding-right: 30px;
+	padding-left: 30px;
+}
 .center{
 	text-align: center;
 }
