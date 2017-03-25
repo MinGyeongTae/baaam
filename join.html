@@ -21,6 +21,7 @@
 	<body class="bg-dark">
 		<div class="container">
 			<form method="post" action='join.jsp'>
+			<!--<form name="joinform" method="post" onsubmit="return fregisterform_submit(this);" autocomplete="off">-->
 				<div class = "form-group">
 					<label class="heading" for="name">이름:</label>
 					<input class="form-control" type="text" name="id" id="id"/> <br>
@@ -37,12 +38,112 @@
 					<label class="heading" for="name">전화번호:</label>
 					<input class="form-control"s type="text" name="phone" id="iphone"/> <br><br>
 				</div>
-				<input type="submit" value="회원가입" class="btn btn-default btn-lg btn-block"/>
+				<input type="submit" value="회원가입" class="btn btn-primary btn-lg btn-block"/>
 			</form>
 		</div><!-- /.container-->
 		<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 	    <script src="js/bootstrap.min.js"></script>
+	    <script language="JavaScript">
+	    	// submit 최종 폼체크
+function fregisterform_submit(f) 
+{
+	var mb_id = reg_mb_id_check(f.id.value);
+	if(mb_id) {
+		alert("'"+mb_id+"'은(는) 사용하실 수 없는 아이디입니다.");
+		f.id.focus();
+		return false;
+	}
+
+    // 회원아이디 검사
+	if(f.id.value.length < 10) {
+		alert('아이디를 10~11글자 휴대전화번호로 입력하십시오.');
+		f.id.focus();
+		return false;
+	}
+
+    // 패스워드 검사
+	if(f.passwd.value.length < 4) {
+		alert('패스워드를 4글자 이상 입력하십시오.');
+		f.passwd.focus();
+		return false;
+	}
+
+    if(f.passwd.value != f.repasswd.value) {
+        alert('패스워드가 같지 않습니다.');
+        f.repasswd.focus();
+        return false;
+    }
+
+    if(f.passwd.value.length > 0) {
+        if(f.repasswd.value.length < 4) {
+            alert('패스워드를 4글자 이상 입력하십시오.');
+            f.repasswd.focus();
+            return false;
+        }
+    }
+
+	<?php if($ar_init['sp_use_email']) { ?>	
+	// 사용할 수 없는 E-mail 도메인
+	var domain = prohibit_email_check(f.email.value);
+	if(domain) {
+		alert("'"+domain+"'은(는) 사용하실 수 없는 메일입니다.");
+		f.email.focus();
+		return false;
+	}
+	<?php } ?>
+
+	if(confirm("입력하신 사항들이 맞는지 확인하시기 바랍니다.\n\n회원가입 하시려면 '확인'버튼을 클릭하세요") == false)
+		return false;
+
+    f.action = './register_form_update.php';
+    return true;
+}
+
+// 회원아이디 검사
+function reg_mb_id_check(mb_id)
+{
+    mb_id = mb_id.toLowerCase();
+
+    var prohibit_mb_id = "<?=trim(strtolower($ar_init['sp_prohibit_id']));?>";
+    var s = prohibit_mb_id.split(",");
+
+    for(i=0; i<s.length; i++) {
+        if(s[i] == mb_id)
+            return mb_id;
+    }
+    return "";
+}
+
+// 금지 메일 도메인 검사
+function prohibit_email_check(email)
+{
+    email = email.toLowerCase();
+
+    var prohibit_email = "<?=trim(strtolower(preg_replace("/(\r\n|\r|\n)/", ",", $ar_init['sp_prohibit_email'])));?>";
+    var s = prohibit_email.split(",");
+    var tmp = email.split("@");
+    var domain = tmp[tmp.length - 1]; // 메일 도메인만 얻는다
+
+    for(i=0; i<s.length; i++) {
+        if(s[i] == domain)
+            return domain;
+    }
+    return "";
+}
+
+function reg_mb_id_ajax() {
+	var mb_id = $.trim($("#mb_id").val());
+	$.post(
+		"./ajax_mb_id_check.php",
+		{ mb_id: mb_id },							 
+		function(data) {
+			$("#sit_mb_id").empty().html(data);
+		}
+	);
+}
+</script>
+	    </script>
 	</body>
 </html>
