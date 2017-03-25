@@ -46,20 +46,37 @@
 		
         <div class="form-group">
         	<ul class="account-list">
-        		<li>
-        			<a>
-        				<p>매달 xx일</p>
-        				<h3>주택청약 <span class="float-right">123122100원</span></h3>
-        				        				
-        			</a>
-        		</li>
-        		<li>
-        			<a>
-        				<p>매달 11일  </p>
-        				<h3>주택청약 <span class="float-right">123123123원</span></h3>
-        				        				
-        			</a>
-        		</li>
+				<li>
+					<a class="main1" id="1" href="addregulartransfer.jsp?">
+						<p id="">매달 xx일</p>
+						<h3><span class="" id="jadong1_str"></span><span class="float-right" id="jadong1_num"></span></h3>		
+					</a>
+				</li>
+				
+				<li>
+					<a class="main1" id="2" href="addregulartransfer.jsp?">
+						<p id="">매달 xx일</p>
+						<h3><span class="" id="jadong2_str"></span><span class="float-right" id="jadong2_num"></span></h3>		
+					</a>
+				</li>
+				<li>
+					<a class="main1" id="3" href="addregulartransfer.jsp?">
+						<p id="">매달 xx일</p>
+						<h3><span class="" id="jadong3_str"></span><span class="float-right" id="jadong3_num"></span></h3>		
+					</a>
+				</li>
+				<li>
+					<a class="main1" id="4" href="addregulartransfer.jsp?">
+						<p id="">매달 xx일</p>
+						<h3><span class="" id="jadong4_str"></span><span class="float-right" id="jadong4_num"></span></h3>		
+					</a>
+				</li>
+				<li>
+					<a class="main1" id="5" href="addregulartransfer.jsp?">
+						<p id="">매달 xx일</p>
+						<h3><span class="" id="jadong5_str"></span><span class="float-right" id="jadong5_num"></span></h3>		
+					</a>
+				</li>
         	</ul>
         </div>
        
@@ -147,9 +164,20 @@
 	
 	var remain = balance - (jadong1_num + jadong2_num + jadong3_num + jadong4_num + jadong5_num);
 </script>
-
+<script>
+$("#jadong1_str").html(jadong1_str);
+$("#jadong2_str").html(jadong2_str);
+$("#jadong3_str").html(jadong3_str);
+$("#jadong4_str").html(jadong4_str);
+$("#jadong5_str").html(jadong5_str);
+if(jadong1_num!=0){$("#jadong1_num").html(jadong1_num.number_format()+"원");}
+if(jadong2_num!=0){$("#jadong2_num").html(jadong2_num.number_format()+"원");}
+if(jadong3_num!=0){$("#jadong3_num").html(jadong3_num.number_format()+"원");}
+if(jadong4_num!=0){$("#jadong4_num").html(jadong4_num.number_format()+"원");}
+if(jadong5_num!=0){$("#jadong5_num").html(jadong5_num.number_format()+"원");}
+</script>
 <script type="text/javascript">
-var str = "addregulartransfer.jsp?";
+var str = "editregulartransfer.jsp?";
 if(jadong1_str !== ""){ str = str+ "jadong1_str=" + jadong1_str;}
 if(jadong2_str !== ""){ str = str+ "&"+ "jadong2_str=" + jadong2_str;}
 if(jadong3_str !== ""){ str = str+ "&"+ "jadong3_str=" + jadong3_str;}
@@ -160,5 +188,9 @@ if(jadong2_num != 0){ str = str+ "&"+"jadong2_num=" + jadong2_num;}
 if(jadong3_num != 0){ str = str+ "&"+"jadong3_num=" + jadong3_num;}
 if(jadong4_num != 0){ str = str+ "&"+"jadong4_num=" + jadong4_num;}
 if(jadong5_num != 0){ str = str+ "&"+"jadong5_num=" + jadong5_num;}
-$(".main").attr('href',str);
+$("#1").attr('href',str+"&order=1");
+$("#2").attr('href',str+"&order=2");
+$("#3").attr('href',str+"&order=3");
+$("#4").attr('href',str+"&order=4");
+$("#5").attr('href',str+"&order=5");
 </script>
